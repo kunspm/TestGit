@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../assets/css/onsenui.css"/>
+	<link rel="stylesheet" href="../assets/css/onsen-css-components.css">
+	<link rel="stylesheet" href="../assets/css/onsenstyle.css">
+	<link rel="stylesheet" href="../assets/css/video/video-style.css">
+	<script src="../assets/js/angular.min.js"></script>
+	<script src="../assets/js/angular-sanitize.js"></script>
+	<script src="../assets/js/onsenui.js"></script>
+	<script src="../assets/js/angular-onsenui.js"></script>
+</head>
+<body ng-app="myApp">
+	<ons-template id="home.html">
+		<ons-page modifier="full_bg">
+			<ons-toolbar class="header-list">
+				<div class="left">
+					<ons-back-button></ons-back-button>
+				</div>
+				<div class="right">
+					<ons-toolbar-button ng-click="mySplitter.right.open()">
+						<ons-icon class="my-icon" icon="md-menu"></ons-icon>
+					</ons-toolbar-button>
+				</div>
+			</ons-toolbar>
+			<ons-list class="my-list ">
+				<ons-list-item class="my-list-item search-header" >
+					<input class="song-header type="text" placeholder="search"></input>
+					<ons-button class="search-button" name="submitSong"></ons-button>
+				</ons-list-item >
+				<ons-list-item class="video-list-item" modifier="tappable">
+					<img src="../assets/images/video-image.png">
+					<div class="text-video">
+						<p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+						<i class="video-time">14.02.2017</i>
+					</div>
+				</ons-list-item>	
+				<ons-list-item class="video-list-item" modifier="tappable">
+					<img src="../assets/images/video-image.png">
+					<div class="text-video">
+						<p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+						<i class="video-time">14.02.2017</i>
+					</div>
+				</ons-list-item>	
+				<ons-list-item class="video-list-item" modifier="tappable">
+					<img src="../assets/images/video-image.png">
+					<div class="text-video">
+						<p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+						<i class="video-time">14.02.2017</i>
+					</div>
+				</ons-list-item>	
+				<ons-list-item class="video-list-item" modifier="tappable">
+					<img src="../assets/images/video-image.png">
+					<div class="text-video">
+						<p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+						<i class="video-time">14.02.2017</i>
+					</div>
+				</ons-list-item>	
+				<ons-list-item class="video-list-item" modifier="tappable">
+					<img src="../assets/images/video-image.png">
+					<div class="text-video">
+						<p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+						<i class="video-time">14.02.2017</i>
+					</div>
+				</ons-list-item>	
+			</ons-list>
+		</ons-page>
+	</ons-template>
+	<ons-splitter var="mySplitter" ng-controller="SplitterController as splitter">
+		<ons-splitter-side side="right" width="220px" collapse swipeable>
+			<ons-page class="my-page">
+				<ons-list class="my-sliding-list">
+					<ons-list-item modifier="tappable" ng-click="">
+						Top Song
+					</ons-list-item>
+					<ons-list-item modifier="tappable" ng-click="">
+						Singer
+					</ons-list-item>
+					<ons-list-item modifier="tappable" ng-click="">
+						PlayList
+					</ons-list-item>
+					<ons-list-item modifier="tappable" ng-click="">
+						Bài hát
+					</ons-list-item>
+				</ons-list>
+			</ons-page>
+		</ons-splitter-side>
+		<ons-splitter-content page="home.html"></ons-splitter-content>
+	</ons-splitter>
+	<script type="text/javascript">
+		(function(angular) {
+			'use strict';
+			angular.module('myApp',['ngSanitize','onsen'])
+			.controller('SplitterController', ['$scope','$sce', function($scope,$sce) {
+			}]);
+		})(window.angular);
+	</script>
+</body>
+
+</html>

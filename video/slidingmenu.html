@@ -1,0 +1,138 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../assets/css/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../assets/css/onsenui.css"/>
+  <link rel="stylesheet" href="../assets/css/onsen-css-components.css">
+  <link rel="stylesheet" href="../assets/css/onsenstyle.css">
+  <link rel="stylesheet" href="../assets/video/css/video-style.css">
+  <script src="../assets/js/angular.min.js"></script>
+  <script src="../assets/js/angular-sanitize.js"></script>
+  <script src="../assets/js/onsenui.js"></script>
+  <script src="../assets/js/angular-onsenui.js"></script>
+</head>
+
+<body ng-app="myApp">
+  <ons-template id="home.html">
+    <ons-page modifier="full_bg_playvideo">
+      <ons-toolbar class="header-song">
+        <div class="left">
+          <ons-back-button></ons-back-button>
+        </div>
+        <div class="right">
+          <ons-toolbar-button ng-click="mySplitter.right.open()">
+            <ons-icon class="my-icon" icon="md-menu"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+      </ons-toolbar>
+      <div class="around-top-content">        
+      </div>
+      <div class="top-content">
+        <div class="video-name">
+          <p class="song-name">In The Name Of Love</p>
+          <p class="singer-name">Martin Garrix</p>
+        </div>
+        <div class="my-video" ng-bind-html="myHTML">
+        </div>
+        <div class="likes">
+          <img src="../assets/images/likeheart.png">
+          <p>1000like</p>
+        </div>
+        <div class="button-group">
+          <div class="all-button">
+            <button class="like-icon">Like</button>
+            <button class="share-icon">Share</button>
+            <button class="comment-icon">Comment</button>
+          </div>
+        </div>
+        <div class="show-comment">
+          <div class="all-comment">
+            <p>Xem tất cả comment</p><i class="fa fa-angle-down" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="login-comment">
+          <div class="login-into">
+            <a href="">Đăng Nhập</a> để comment.
+          </div>
+        </div>
+      </div>
+      <div class="bottom1">
+      <div class="around-bottom-content1"> 
+          <div class="bottom-content1">
+            <ons-list class="my-list ">
+              <ons-list-item class="video-list-item" modifier="tappable">
+                <img src="../assets/images/video-image.png">
+                <div class="text-video">
+                  <p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+                  <i class="video-time">14.02.2017</i>
+                </div>
+              </ons-list-item>
+               <ons-list-item class="video-list-item" modifier="tappable">
+                <img src="../assets/images/video-image.png">
+                <div class="text-video">
+                  <p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+                  <i class="video-time">14.02.2017</i>
+                </div>
+              </ons-list-item>  
+               <ons-list-item class="video-list-item" modifier="tappable">
+                <img src="../assets/images/video-image.png">
+                <div class="text-video">
+                  <p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+                  <i class="video-time">14.02.2017</i>
+                </div>
+              </ons-list-item>  
+               <ons-list-item class="video-list-item" modifier="tappable">
+                <img src="../assets/images/video-image.png">
+                <div class="text-video">
+                  <p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+                  <i class="video-time">14.02.2017</i>
+                </div>
+              </ons-list-item>   
+                 <ons-list-item class="video-list-item" modifier="tappable">
+                <img src="../assets/images/video-image.png">
+                <div class="text-video">
+                  <p class="video-name-singer">Lạc Trôi (Sơn Tùng- MTP)</p>
+                  <i class="video-time">14.02.2017</i>
+                </div>
+              </ons-list-item>   
+            </ons-list>
+          </div>
+        </div>
+
+      </div>      
+    </ons-page>
+  </ons-template>
+  <ons-splitter var="mySplitter" ng-controller="SplitterController as splitter">
+    <ons-splitter-side side="right" width="220px" collapse swipeable>
+      <ons-page class="my-page">
+        <ons-list class="my-sliding-list">
+          <ons-list-item modifier="tappable" ng-click="">
+            Top Song
+          </ons-list-item>
+          <ons-list-item modifier="tappable" ng-click="">
+            Singer
+          </ons-list-item>
+          <ons-list-item modifier="tappable" ng-click="">
+            PlayList
+          </ons-list-item>
+          <ons-list-item modifier="tappable" ng-click="">
+            Bài hát
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content page="home.html"></ons-splitter-content>
+  </ons-splitter>
+  <script type="text/javascript">
+    (function(angular) {
+      'use strict';
+      angular.module('myApp',['ngSanitize','onsen'])
+      .controller('SplitterController', ['$scope','$sce', function($scope,$sce) {
+        $scope.myHTML =$sce.trustAsHtml('<iframe width="100%" height="100%" src="https://www.youtube.com/embed/f3QmvxbzutQ" frameborder="0" allowfullscreen></iframe>');
+      }]);
+    })(window.angular);
+  </script>
+</body>
+</html>

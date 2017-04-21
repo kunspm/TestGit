@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="assets/css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="assets/css/onsenui.css"/>
+	<link rel="stylesheet" href="assets/css/onsen-css-components.css">
+	<link rel="stylesheet" href="assets/css/onsenstyle.css">
+	<link rel="stylesheet" href="assets/css/video-style.css">
+	<script src="assets/js/angular.min.js"></script>
+	<script src="assets/js/angular-sanitize.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.min.js"></script>
+	<script src="assets/js/onsenui.js"></script>
+	<script src="assets/js/angular-onsenui.js"></script>
+	<script>
+  
+    </script>
+
+</head>
+
+<body ng-app="myApp">
+	<ons-splitter var="mySplitter" ng-controller="SplitterController as splitter">
+	  <ons-splitter-side side="right" width="220px" collapse swipeable>
+	    <ons-page>
+	      <ons-list>
+	        <ons-list-item ng-click="splitter.load('home.html')" tappable>
+	          Home
+	        </ons-list-item>
+	        <ons-list-item ng-click="" tappable>
+	          Settings
+	        </ons-list-item>
+	        <ons-list-item ng-click="" tappable>
+	          About
+	        </ons-list-item>
+	      </ons-list>
+	    </ons-page>
+	  </ons-splitter-side>
+	  <ons-splitter-content page="home.html"></ons-splitter-content>
+	</ons-splitter>
+
+	<ons-template id="home.html">
+	  <ons-page>
+	    <ons-toolbar>
+	      <div class="right">
+	        <ons-toolbar-button ng-click="mySplitter.right.open()">
+	          <ons-icon icon="md-menu"></ons-icon>
+	        </ons-toolbar-button>
+	      </div>
+	      <div class="center">
+	       Main
+	      </div>
+	    </ons-toolbar>
+	    <p ng-bind-html="myHTML"></p>
+	    <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+	      Swipe right to open the menu!
+	    </p>
+	  </ons-page>
+	</ons-template>
+
+</body>
+
+<script type="text/javascript">
+		(function(angular) {
+  'use strict';
+angular.module('myApp',['ngSanitize','onsen'])
+.controller('SplitterController', ['$scope','$sce', function($scope,$sce) {
+    $scope.myHTML =$sce.trustAsHtml('<iframe width="560" height="315" src="https://www.youtube.com/embed/FZSjvWtUxYk" frameborder="0" allowfullscreen></iframe>');
+  }]);
+})(window.angular);
+	</script>
+
+</html>
